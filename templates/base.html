@@ -16,14 +16,15 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        {% block extrahead %}{% endblock %}
+        {% block extrahead %}{% endblock extrahead %}
     {% endblock head %}
 </head>
+
 
 <body class="grey lighten-4">
 
 <div class="navbar-fixed">
-    <nav class="blue darken-2">
+    <nav class="red darken-4">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="index.html" class="brand-logo right">SI Inspirarte</a>
@@ -33,9 +34,9 @@
                   <ul id="slide-out" class="sidenav">
                     <li><div class="user-view">
                       <div class="background">
-                        <img src="images/office.jpg">
+                        <img src="">
                       </div>
-                      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+                      <a href="#user"><img class="circle" src=""></a>
                       <a href="#name"><span class="white-text name">John Doe</span></a>
                       <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
                     </div></li>
@@ -51,21 +52,39 @@
         </div>
     </nav>
 </div>
-<a><h5 class="black-text">{% block tema %} Tema {% endblock %}</h5></a>
-
-{% block content %}
 
 
+<div class="row">
+    <div class="col s12">
+        <h4 class="black-text center-align">
+        {% block tema %} Tema {% endblock %}
+        </h4>
+    </div>
+</div>
 
+<section id="main-container" class="container">
+    {% block content %} Contenido {% endblock content %}
+</section>
 
-{% endblock content %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="{% static 'js/sidenav.js' %}"></script>
 <!-- <script src="{% static 'js/pickers.js'%}"></script> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems);
+  });
+</script>
 {% block messages %}
 {% endblock messages %}
 </body>
+
 </html>

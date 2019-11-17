@@ -1,0 +1,44 @@
+{% load static %}
+
+<!-- Boton para probar modal
+<div class="fixed-action-btn">
+  <a href="#idmodal" class="btn-floating btn-large btn modal-trigger amber darken-4">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+-->
+
+<form method="POST">{% csrf_token %}
+    <div class="modal-content">
+        <h4 class="center-align">Agregar Proveedor</h4>
+
+            <div class="row">
+
+                <div class="input-field col s4">
+                  <i class="material-icons prefix">contacts</i>
+                  <input id="Nombre" name="Nombre" type="text" class="validate">
+                  <label for="Nombre">Nombre</label>
+                </div>
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">home</i>
+                  <input id="Direccion" name="Direccion" type="text" class="validate">
+                  <label for="Direccion">Dirección</label>
+                </div>
+                <div class="input-field col s4">
+                  <i class="material-icons prefix">phone</i>
+                  <input id="Telefono" name="Telefono" type="tel" class="validate">
+                  <label for="Telefono">Teléfono</label>
+                </div>
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">description</i>
+                  <input id="Descripcion" name="Descripcion" type="tel" class="validate">
+                  <label for="Descripcion">Descripción</label>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close" type="submit" name="action">Agregar</button>
+        <a href="" class="btn modal-close red">cerrar</a>
+    </div>
+</form>
+

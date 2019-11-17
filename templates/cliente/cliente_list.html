@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} Proveedores {% endblock %}
+{% block pantalla %} Proveedores  {% endblock %}
+{% block descripcion %} {% endblock %}
+
+
+        {% block tema %} Clientes  {% endblock %}
+
+
+
+
+{% block content %}
+<div class="card">
+    <div class="card-content">
+        <table class="highlight responsive-table">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Teléfono</th>
+              <th>Email</th>
+              <th>Organización</th>
+              <th style="text-align: center;" colspan="4">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for c in clientes %}
+                <tr>
+                    <td>{{ c.nombre }} {{ c.apellido }}</td>
+                    <td>{{ c.tipo }}</td>
+                    <td>{{ c.telefono }}</td>
+                    <td>{{ c.email }}</td>
+                    <td>{{ c.organizacion }}</td>
+                    <td>
+                        <a href="{% url 'apiApp:cli_watch' c.id %}">
+                            <i class="material-icons tooltipped" data-position="top" data-tooltip="Ver">visibility</i>
+                        </a></td>
+                    <td>
+                      <a href="{% url 'apiApp:cli_edit' c.id %}"><i class="material-icons tooltipped"
+                                                                    data-position="top"
+                            data-tooltip="Editar">edit</i>
+                      </a>
+                    </td>
+                    <td><a href="{% url 'apiApp:cli_delete' c.id %}"><i class="material-icons tooltipped"
+                                                                        data-position="top" data-tooltip="Eliminar">
+                        delete</i></a></td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div class="fixed-action-btn">
+  <a href="#modalcreate" class="btn-floating btn-large btn modal-trigger amber darken-4">
+    <i class="large material-icons tooltipped" data-position="top" data-tooltip="Agregar">add</i>
+  </a>
+</div>
+
+
+
+<div id="modalcreate" class="modal">
+    {% include "cliente/cliente_create.html" %}
+</div>
+
+{% endblock %}

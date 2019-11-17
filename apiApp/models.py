@@ -23,6 +23,7 @@ class proveedor(models.Model):
     nombre = models.CharField(max_length=30)
     direccion = models.CharField(max_length=50)
     telefono = models.CharField(max_length=15)
+    descripcion = models.CharField(max_length=300)
 
 
 class Material(models.Model):
