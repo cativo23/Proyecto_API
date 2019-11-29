@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} Proveedores {% endblock %}
+{% block pantalla %} Proveedores  {% endblock %}
+{% block descripcion %} {% endblock %}
+
+        {% block tema %}{% endblock %}
+
+{% block content %}
+<!-- Boton para probar modal
+<div class="fixed-action-btn">
+  <a href="#idmodal" class="btn-floating btn-large btn modal-trigger amber darken-4">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+-->
+
+<form method="POST">{% csrf_token %}
+    <div class="modal-content">
+        <h4 class="center-align">Información del Producto</h4>
+            <div class="row">
+                <div class="input-field col s2">
+                  <i class="material-icons prefix">assignment</i>
+                  <input id="Codigo" name="Codigo" type="text" class="validate" value="{{ lin.producto.codigo }}" disabled required>
+                  <label for="Codigo">Código</label>
+                </div>
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">add_shopping_cart</i>
+                    <select disabled name="Producto" required>
+                            <option>{{ lin.producto.nombre }}</option>
+                    </select>
+                    <label>Productos</label>
+                </div>
+                <div class="input-field col s2">
+                  <i class="material-icons prefix">attach_money</i>
+                  <input id="Precio" name="Precio" type="text" class="validate" value="{{ lin.producto.precio }}" disabled required>
+                  <label for="Precio">Precio Unitario</label>
+                </div>
+                <div class="input-field col s2">
+                  <i class="material-icons prefix">filter_9_plus</i>
+                  <input id="Cantidad" name="Cantidad" type="text" class="validate" value="{{ lin.cantidad }}" disabled required>
+                  <label for="Cantidad">Cantidad</label>
+                </div>
+                <div class="input-field col s2">
+                  <i class="material-icons prefix">attach_money</i>
+                  <input id="Subtotal" name="Subtotal" type="text" class="validate" value="{{ lin.subtotal }}" disabled required>
+                  <label for="Subtotal">Subtotal</label>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <a href="{% url 'apiApp:ord_create' %}" class="btn modal-close red">cerrar</a>
+    </div>
+</form>
+{% endblock %}

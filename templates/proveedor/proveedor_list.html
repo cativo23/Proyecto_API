@@ -6,11 +6,7 @@
 {% block pantalla %} Proveedores  {% endblock %}
 {% block descripcion %} {% endblock %}
 
-
         {% block tema %} Proveedores  {% endblock %}
-
-
-
 
 {% block content %}
 <div class="card">
@@ -19,10 +15,10 @@
         <thead>
           <tr>
               <th>Nombre</th>
-              <th>Dirección</th>
               <th>Teléfono</th>
-              <th>Descripción</th>
-              <th style="text-align: center;" colspan="4">Acciones</th>
+              <th>Dirección</th>
+
+              <th style="text-align: center;" colspan="3">Acciones</th>
           </tr>
         </thead>
 
@@ -30,9 +26,9 @@
             {% for p in proveedores %}
                 <tr>
                     <td>{{ p.nombre }}</td>
-                    <td>{{ p.direccion }}</td>
                     <td>{{ p.telefono }}</td>
-                    <td>{{ p.descripcion }}</td>
+                    <td>{{ p.direccion }}</td>
+
                     <td>
                         <a href="{% url 'apiApp:pro_watch' p.id %}">
                             <i class="material-icons tooltipped" data-position="top" data-tooltip="Ver">visibility</i>
@@ -46,8 +42,6 @@
                     <td><a href="{% url 'apiApp:pro_delete' p.id %}"><i class="material-icons tooltipped"
                                                                         data-position="top" data-tooltip="Eliminar">
                         delete</i></a></td>
-
-
                 </tr>
             {% endfor %}
         </tbody>
@@ -56,15 +50,8 @@
 </div>
 
 <div class="fixed-action-btn">
-  <a href="#modalcreate" class="btn-floating btn-large btn modal-trigger amber darken-4">
+  <a href="{% url 'apiApp:pro_create' %}" class="btn-floating btn-large btn modal-trigger amber darken-4">
     <i class="large material-icons tooltipped" data-position="top" data-tooltip="Agregar">add</i>
   </a>
 </div>
-
-
-
-<div id="modalcreate" class="modal">
-    {% include "proveedor/proveedor_create.html" %}
-</div>
-
 {% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Proveedores {% endblock %}
+{% block pantalla %} Proveedores  {% endblock %}
+{% block descripcion %} {% endblock %}
+
+        {% block tema %} Agregar Material {% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <div class="modal-content">
+            <div class="row">
+                <div class="input-field col s4">
+                  <i class="material-icons prefix">assignment</i>
+                  <input id="Codigo" name="Codigo" type="text" class="validate" required>
+                  <label for="Codigo">Código</label>
+                </div>
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">shopping_basket</i>
+                  <input id="Nombre" name="Nombre" type="text" class="validate" required>
+                  <label for="Nombre">Nombre</label>
+                </div>
+                <div class="input-field col s3">
+                  <i class="material-icons prefix">attach_money</i>
+                  <input id="Precio" name="Precio" type="text" class="validate" required>
+                  <label for="Precio">Precio</label>
+                </div>
+                <div class="input-field col s3">
+                  <i class="material-icons prefix">filter_9_plus</i>
+                  <input id="Cantidad" name="Cantidad" type="text" class="validate" required>
+                  <label for="Cantidad">Cantidad</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">local_shipping</i>
+                    <select name="Proveedor" required>
+                        <option value="" disabled selected>Elige tu opción</option>
+                        {% for p in pro %}
+                            <option value="{{ p.id }}">{{ p.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Proveedor</label>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close" type="submit" name="action">Agregar</button>
+        <a href="" class="btn modal-close red">cerrar</a>
+    </div>
+</form>
+{% endblock %}
+
