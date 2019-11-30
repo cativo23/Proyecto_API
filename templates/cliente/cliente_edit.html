@@ -24,47 +24,49 @@
             <div class="row">
                 <div class="input-field col s4">
                   <i class="material-icons prefix">contacts</i>
-                  <input id="Nombre" name="Nombre" type="text" class="validate" value="{{ cli.nombre }}">
+                  <input id="Nombre" name="Nombre" type="text" class="validate" value="{{ cli.nombre }}" required>
                   <label for="Nombre">Nombre</label>
                 </div>
                 <div class="input-field col s4">
                   <i class="material-icons prefix">contacts</i>
-                  <input id="Apellido" name="Apellido" type="text" class="validate" value="{{ cli.apellido }}">
+                  <input id="Apellido" name="Apellido" type="text" class="validate" value="{{ cli.apellido }}" required>
                   <label for="Apellido">Apellido</label>
                 </div>
                 <div class="input-field col s4">
                   <i class="material-icons prefix">star_half</i>
-                  <input id="Tipo" name="Tipo" type="text" class="validate" value="{{ cli.tipo }}">
+                  <input id="Tipo" name="Tipo" type="text" class="validate" value="{{ cli.tipo }}" required>
                   <label for="Tipo">Tipo</label>
                 </div>
                 <div class="input-field col s3">
                   <i class="material-icons prefix">phone</i>
-                  <input id="Telefono" name="Telefono" type="tel" class="validate" value="{{ cli.telefono }}">
+                  <input id="Telefono" name="Telefono" type="tel" class="validate" value="{{ cli.telefono }}"required>
                   <label for="Telefono">Teléfono</label>
                 </div>
                 <div class="input-field col s5">
                   <i class="material-icons prefix">email</i>
-                  <input id="Email" name="Email" type="email" class="validate" value="{{ cli.email }}">
+                  <input id="Email" name="Email" type="email" class="validate" value="{{ cli.email }}" required>
                   <label for="Email">Email</label>
                 </div>
                 <div class="input-field col s4">
                   <i class="material-icons prefix">store</i>
-                  <input id="Organizacion" name="Organizacion" type="tel" class="validate" value="{{ cli.organizacion }}">
+                  <input id="Organizacion" name="Organizacion" type="text" class="validate"
+                         value="{{ cli.organizacion }}" required>
                   <label for="Organizacion">Organización</label>
                 </div>
                 <div class="input-field col s3">
                   <i class="material-icons prefix">subtitles</i>
-                  <input id="Dui" name="Dui" type="tel" class="validate" value="{{ cli.dui }}">
+                  <input id="Dui" name="Dui" type="text" class="validate" value="{{ cli.dui }}" required>
                   <label for="Dui">DUI</label>
                 </div>
                 <div class="input-field col s3">
                   <i class="material-icons prefix">subtitles</i>
-                  <input id="Nit" name="Nit" type="tel" class="validate" value="{{ cli.nit }}">
+                  <input id="Nit" name="Nit" type="text" class="validate" value="{{ cli.nit }}" required>
                   <label for="Nit">NIT</label>
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">home</i>
-                  <input id="Direccion" name="Direccion" type="text" class="validate" value="{{ cli.direccion }}">
+                  <input id="Direccion" name="Direccion" type="text" class="validate" value="{{ cli.direccion }}"
+                         required>
                   <label for="Direccion">Dirección</label>
                 </div>
             </div>

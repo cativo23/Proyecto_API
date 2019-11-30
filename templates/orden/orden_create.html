@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} Orden {% endblock %}
+{% block pantalla %} Orden  {% endblock %}
+{% block descripcion %} {% endblock %}
+
+
+        {% block tema %}{% endblock %}
+<!-- Boton para probar modal
+<div class="fixed-action-btn">
+  <a href="#idmodal" class="btn-floating btn-large btn modal-trigger amber darken-4">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+-->
+{% block content %}
+<!-- Boton para probar modal
+<div class="fixed-action-btn">
+  <a href="#idmodal" class="btn-floating btn-large btn modal-trigger amber darken-4">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
+    cantidad
+    express
+    cliente
+    fecha_realizacion
+    fecha_entrega
+    precio_total
+    producto
+-->
+
+
+
+<div id="encabezado" class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s12 m12 l9">
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">filter_9_plus</i>
+                    <input id="Cotizacion" name="Cotizacion" type="text" class="validate" value="{{ numero }}"
+                           disabled>
+                    <label for="Cotizacion" class="active">No. de Cotización</label>
+                </div>
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">event</i>
+                    <input id="Fecha" name="Fecha"type="text" class="validate" value="{{ hoy }}" disabled>
+                    <label for="Fecha" class="active">Fecha</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">contacts</i>
+                    <input name="Cliente" type="text" id="Cliente" class="autocomplete">
+                    <label for="Cliente" class="active">Cliente</label>
+                </div>
+                <div class="input-field col s2">
+                    <a   href="#addcli" class="tooltipped waves-effect waves-light btn modal-trigger amber darken-4"
+                       data-position="top" data-tooltip="Agregar cliente">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+                <div class="input-field col s2">
+                  <label>
+                    <input type="checkbox" />
+                        <span>Express</span>
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix">store</i>
+                            <input id="Organizacion" name="Organizacion" type="text" class="validate" value="Inspirarte SA de CV" disabled>
+                            <label for="Organizacion" class="active">Organización</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="Telefono" name="Telefono" type="text" class="validate" value="22556677" disabled>
+                            <label for="Telefono" class="active">Teléfono</label>
+                        </div>
+                        <div class="input-field col s5">
+                            <i class="material-icons prefix">email</i>
+                            <input id="Email" name="Email" type="email" class="validate" value="inspirarte@gmail.com"
+                                   disabled>
+                            <label for="Email" class="active">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m12 l3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-content">
+                            <table class="highlight responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subtotal</th>
+                                        <td>$12.00</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Impuesto (18%)</th>
+                                        <td>$1.60</td>
+                                    </tr>
+                                    <tr>
+                                        <th>TOTAL</th>
+                                        <td>$130.00</td>
+                                    </tr>
+                                </thead>
+                            </table>
+                                <button class="btn waves-effect waves-light modal-close" type="submit" name="action">Guardar</button>
+                                <a href="" class="btn modal-close red">Atrás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tabla" class="row">
+    <div class="card">
+        <div class="card-content">
+            <table class="highlight responsive-table">
+                <a href="{% url 'apiApp:lin_create' %}" class="waves-effect waves-light btn large btn modal-trigger amber darken-4">
+                    Agregar producto
+                </a>
+                <thead>
+                  <tr>
+                      <th>Código</th>
+                      <th>Producto</th>
+                      <th>Cantidad</th>
+                      <th>Precio</th>
+                      <th>Subtotal</th>
+                      <th style="text-align: center;" colspan="3">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for l in lineas %}
+                    <tr>
+                        <td>{{ l.producto.codigo }}</td>
+                        <td>{{ l.producto.nombre }}</td>
+                        <td>{{ l.cantidad }}</td>
+                        <td>{{ l.producto.precio }}</td>
+                        <td>{{ l.subtotal }}</td>
+                        <td>
+                            <a href="{% url 'apiApp:lin_watch' l.id %}">
+                                <i class="material-icons tooltipped" data-position="top" data-tooltip="Ver">visibility</i>
+                            </a>
+                        </td>
+                        <td>
+                          <a href="{% url 'apiApp:lin_edit' l.id %}"><i class="material-icons tooltipped"
+                                                                        data-position="top"
+                                data-tooltip="Editar">edit</i>
+                          </a>
+                        </td>
+                        <td><a href="{% url 'apiApp:lin_delete' l.id %}"><i class="material-icons tooltipped"
+                                                                            data-position="top" data-tooltip="Eliminar">
+                            delete</i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        <!--<a class="waves-effect waves-light btn large">Agregar producto</a>-->
+
+        </div>
+    </div>
+</div>
+
+<div id="pie" class="row">
+    <div class="row">
+        <div class="col s8">
+        </div>
+        <div class="col s4">
+
+        </div>
+    </div>
+</div>
+
+<div id="addcli" class="modal">
+    {% include "cliente/cliente_create.html" %}
+</div>
+<script src="{% static 'js/orden/orden_create.js' %}"></script>
+
+{% endblock %}

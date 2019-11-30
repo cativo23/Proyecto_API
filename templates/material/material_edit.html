@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} Proveedores {% endblock %}
+{% block pantalla %} Proveedores  {% endblock %}
+{% block descripcion %} {% endblock %}
+
+
+        {% block tema %}{% endblock %}
+<!-- Boton para probar modal
+<div class="fixed-action-btn">
+  <a href="#idmodal" class="btn-floating btn-large btn modal-trigger amber darken-4">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+-->
+{% block content %}
+
+
+<form method="POST">{% csrf_token %}
+    <div class="modal-content">
+        <h4 class="center-align">Editar Material</h4>
+            <div class="row">
+
+                <div class="input-field col s4">
+                  <i class="material-icons prefix">assignment</i>
+                  <input id="Codigo" name="Codigo" type="text" class="validate" value="{{ mat.codigo }}" required>
+                  <label for="Codigo">Código</label>
+                </div>
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">shopping_basket</i>
+                  <input id="Nombre" name="Nombre" type="text" class="validate" value="{{ mat.nombre }}" required>
+                  <label for="Nombre">Nombre</label>
+                </div>
+                <div class="input-field col s3">
+                  <i class="material-icons prefix">attach_money</i>
+                  <input id="Precio" name="Precio" type="text" class="validate" value="{{ mat.precio }}" required>
+                  <label for="Precio">Precio</label>
+                </div>
+                <div class="input-field col s3">
+                  <i class="material-icons prefix">filter_9_plus</i>
+                  <input id="Cantidad" name="Cantidad" type="text" class="validate" value="{{ mat.cantidad }}" required>
+                  <label for="Cantidad">Cantidad</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <select name="Proveedor">
+                        <option value="{{ mat.proveedor.id }}" selected>{{ mat.proveedor.nombre }}</option>
+                        {% for p in proveedores %}
+                            {% if p.nombre != mat.proveedor.nombre %}
+                            <option value="{{ p.id }}">{{ p.nombre }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label>Proveedor</label>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close" type="submit" name="action">Agregar</button>
+        <a href="{% url 'apiApp:mat_list' %}" class="btn modal-close red">cerrar</a>
+    </div>
+</form>
+{% endblock %}

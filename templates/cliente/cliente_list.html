@@ -58,15 +58,8 @@
 </div>
 
 <div class="fixed-action-btn">
-  <a href="#modalcreate" class="btn-floating btn-large btn modal-trigger amber darken-4">
+  <a href="{% url 'apiApp:cli_create' %}" class="btn-floating btn-large btn modal-trigger amber darken-4">
     <i class="large material-icons tooltipped" data-position="top" data-tooltip="Agregar">add</i>
   </a>
 </div>
-
-
-
-<div id="modalcreate" class="modal">
-    {% include "cliente/cliente_create.html" %}
-</div>
-
 {% endblock %}

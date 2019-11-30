@@ -43,13 +43,19 @@ class producto(models.Model):
 
 
 class Orden(models.Model):
-    cantidad = models.IntegerField()
     express = models.BooleanField(default=False)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     fecha_realizacion = models.DateTimeField() 
-    fecha_entrega = models.DateTimeField() 
-    precio_total = models.DecimalField(max_digits=10, decimal_places=2)
-    producto = models.ManyToManyField(producto)
+    fecha_entrega = models.DateTimeField()
+    subtotal = models.DecimalField(max_digits=10, decimal_places=2, null=True)  # Sin IVA
+    total = models.DecimalField(max_digits=10, decimal_places=2, null=True)    # Con IVA
+
+
+class Lineas(models.Model):
+    producto = models.ForeignKey(producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    subtotal = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    orden = models.ForeignKey(Orden, on_delete=models.CASCADE)
 
 
 class OrdenDeTrabajo(models.Model):

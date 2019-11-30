@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Proveedores {% endblock %}
+{% block pantalla %} Proveedores  {% endblock %}
+{% block descripcion %} {% endblock %}
+
+        {% block tema %} Agregar Producto {% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <div class="modal-content">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">add_shopping_cart</i>
+                    <select name="Producto" required>
+                        <option value="" disabled selected>Elige tu opción</option>
+                        {% for p in productos %}
+                            <option value="{{ p.id }}">{{ p.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Productos</label>
+                </div>
+                <div class="input-field col s3">
+                  <i class="material-icons prefix">filter_9_plus</i>
+                  <input id="Cantidad" name="Cantidad" type="text" class="validate" required>
+                  <label for="Cantidad">Cantidad</label>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close" type="submit" name="action">Agregar</button>
+        <a href="{% url 'apiApp:ord_create' %}" class="btn modal-close red">cerrar</a>    </div>
+</form>
+{% endblock %}
