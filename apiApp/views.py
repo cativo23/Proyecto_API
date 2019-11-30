@@ -3,12 +3,17 @@ from .models import proveedor, Cliente, producto, Material, Orden, Lineas
 from django.core import serializers
 from django.http import HttpResponse
 import datetime
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def index(request):
     return render(request, template_name='index.html')
 
+# Create your views here
+@login_required()
+def index(request):
+    return render(request, template_name='index.html')
 
 # CRUD Proveedor
 def proveedor_list(request):
