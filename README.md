@@ -1,26 +1,26 @@
-# ⚠️ Proyecto Archivado
+# ⚠️ Archived Project
 
-**Proyecto de College (ETL con Python) - Archivado como referencia académica**
-
----
-
-## Estado del Proyecto
-
-Este repositorio está **archivado** y ya no recibe mantenimiento activo.
-
-### ¿Por qué se archivó?
-
-- Proyecto universitario/académico
-- Implementación de ETL con Python
-- Se archiva como referencia académica
+**College Project (ETL with Python) - Archived as Academic Reference**
 
 ---
 
-## Información Original
+## Project Status
 
-Proyecto de ETL (Extract, Transform, Load) desarrollado para la universidad.
+This repository is **archived** and is no longer actively maintained.
 
-## Tecnologías
+### Why was this archived?
+
+- University/academic project
+- ETL implementation with Python
+- Archived as academic reference
+
+---
+
+## Original Information
+
+ETL (Extract, Transform, Load) project developed for university.
+
+## Technologies
 
 - Python
 - Django
@@ -28,4 +28,4 @@ Proyecto de ETL (Extract, Transform, Load) desarrollado para la universidad.
 
 ---
 
-**Nota:** Este repositorio se mantiene como referencia de trabajos académicos completados.
+**Note:** This repository is kept as reference of completed academic work.
